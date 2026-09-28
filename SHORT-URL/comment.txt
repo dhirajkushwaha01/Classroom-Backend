@@ -1,1 +1,9 @@
-nanoid----->for the creating short ids 
+nanoid----->for the creating short ids  
+
+------------------EJS--------------------------------- 
+
+EJS (Embedded JavaScript Templates) is a template engine for Node.js and Express.js that allows us to embed JavaScript code inside HTML to create dynamic web pages.
+
+EJS ek template engine hai jo HTML ke andar JavaScript use karke dynamic HTML pages banane mein help karta hai.  
+
+------------------------------------------------------------------------
