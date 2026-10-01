@@ -5,11 +5,11 @@ const {
     handleGetAnalytics,
 } = require("../controllers/url");
 
-const { checkAuth } = require("../middlewares/auth");
+const { checkForAuthentication } = require("../middlewares/auth");
 
 const router = express.Router();
 
-router.post("/", checkAuth, handleGenerateNewShortURL);
+router.post("/", checkForAuthentication, handleGenerateNewShortURL);
 
 router.get("/analytics/:shortId", handleGetAnalytics);
 
