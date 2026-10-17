@@ -1,0 +1,70 @@
+1. What is a Stream in Node.js?
+
+A Stream in Node.js is an abstract interface that allows data to be read, written, or processed continuously in small chunks instead of loading the entire data into memory at once. Streams are designed to handle data efficiently, especially when working with large files, network communication, HTTP requests and responses, video streaming, and data transformation.
+Node.js streams are based on the EventEmitter API and support asynchronous data processing. They help reduce memory consumption, improve responsiveness, and allow data to flow from a source to a destination while the data is still being received or produced.
+For example, when reading a large video file, Node.js does not need to load the entire video into memory. Instead, it can read small chunks of the file and send them to the browser one by one.       
+
+
+Explanation:
+- createReadStream() creates a readable stream for the specified file.
+- The data event is emitted when a chunk of data becomes available.
+- chunk.toString() converts the received buffer into readable text.
+- The end event indicates that all available file data has been read.
+- The error event handles errors that occur during reading. 
+
+
+2. Types of Streams in Node.js 
+
+Node.js provides four fundamental types of streams. 
+
+A. Readable Stream
+Definition: A Readable Stream is a stream from which data can be read. It provides data in chunks, allowing applications to process information gradually rather than loading the entire source into memory.
+
+
+C. Duplex Stream 
+
+Definition: A Duplex Stream is a stream that supports both reading and writing. It has a readable side that produces data and a writable side that accepts data. Both sides can operate independently.
+ A Transform Stream is a special type of Duplex Stream that can modify, process, or transform data as it passes through the stream. It accepts input on its writable side and produces transformed output on its readable side.
+
+
+
+
+
+3. Advantages of Streams in Node.js 
+
+1. Memory Efficiency: Streams process data in chunks, reducing the need to load entire large datasets into memory.
+
+2. Improved Performance: Processing can begin before the complete data source has been received or read.
+
+3. Asynchronous Processing: Streams work well with Node.js's asynchronous I/O model.
+
+4. Data Transformation: Transform Streams allow data to be compressed, modified, or processed while flowing.
+
+5. Backpressure Support: Streams help control data flow when a destination processes data more slowly than a source produces it.
+
+6. Large File Handling: Streams are particularly useful for transferring, reading, and writing large files.
+
+7. Network Communication: They are used in HTTP requests, HTTP responses, and network sockets. 
+
+
+
+
+4. What is pipe() in Node.js Streams? 
+
+Definition: The pipe() method connects a Readable Stream to a Writable Stream. It transfers data from the source to the destination and automatically manages backpressure during normal stream operation.
+
+
+Here, the contents of input.txt are transferred to output.txt without manually handling every chunk.
+For more robust error handling across connected streams, Node.js also provides the pipeline() function. 
+
+
+5. What is Backpressure? 
+
+
+Definition: Backpressure is a mechanism that helps regulate the flow of data when a Writable Stream cannot process incoming data as quickly as a Readable Stream produces it. It prevents uncontrolled buffering and helps manage memory usage.
+
+
+Conclusion
+
+
+Node.js Streams are an essential feature for efficient data processing. They allow applications to read, write, transfer, and transform data incrementally. The four main stream types are Readable, Writable, Duplex, and Transform. Methods such as pipe() and pipeline(), along with backpressure handling, make streams especially useful for building scalable backend applications, handling large files, serving HTTP responses, and processing network data.
