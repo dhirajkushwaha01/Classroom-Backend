@@ -1,0 +1,45 @@
+What is Cluster in Node.js? 
+
+The Cluster module in Node.js allows a Node.js application to create multiple worker processes that can share the same server port. These worker processes can handle incoming requests concurrently, helping the application utilize multiple CPU cores and improve performance for workloads that can benefit from parallel request handling. 
+
+Normally, Node.js executes JavaScript on a single main thread within a process. The Cluster module allows us to create multiple separate processes, each with its own JavaScript execution environment and event loop. 
+
+Cluster is especially useful for HTTP servers that need to handle many incoming requests. 
+
+
+Why do we need Cluster?  
+
+Imagine you create a Node.js server on your laptop. 
+
+- Your computer has 4 CPU cores.
+- Your server runs as a single Node.js process.
+- That process may not fully utilize all the available CPU cores for JavaScript execution.
+- If you create multiple worker processes, requests can be handled by different workers. 
+
+
+
+ Advantages and disadvantages 
+
+Advantages 
+
+- Uses multiple CPU cores more effectively for suitable workloads.
+- Allows multiple worker processes to handle requests.
+- Can keep a service running when one worker exits, provided other workers remain healthy.
+- Separates worker memory and execution environments. 
+
+Disadvantages 
+
+- Each worker consumes additional memory.
+- Workers require lifecycle management and monitoring.
+- In-memory data isn't automatically shared across workers.
+-
+
+When should you use Cluster?
+Cluster may be useful when:
+- You have a Node.js HTTP server handling many concurrent connections.
+- Your workload can benefit from multiple processes.
+- Your machine has multiple CPU cores available.
+- You need to isolate application workers into separate processes.
+It is not automatically necessary for every application. For a small project, one Node.js process may be completely sufficient.
+
+
